@@ -12,7 +12,7 @@ function Avatar({
 }) {
     let avatarUrl = avatar;
     if (avatar && avatar.startsWith('/uploads/')) {
-      avatarUrl = `http://localhost:5000${avatar}`;
+      avatarUrl = `https://codequest-backend-wmll.onrender.com/${avatar}`;
     }
     if (avatar) {
       return (

@@ -11,7 +11,7 @@ const ForgotPassword = ({ setShowForgot }) => {
   const handleSendOtp = async () => {
     setMsg('');
     try {
-      await axios.post('http://localhost:5000/otp/send-otp', { mobile: phone });
+      await axios.post('https://codequest-backend-wmll.onrender.com/otp/send-otp', { mobile: phone });
       setStep(2);
       setMsg('OTP sent to your mobile.');
     } catch (err) {
@@ -22,7 +22,7 @@ const ForgotPassword = ({ setShowForgot }) => {
   const handleVerifyOtp = async () => {
     setMsg('');
     try {
-      await axios.post('http://localhost:5000/otp/verify-otp', { mobile: phone, code: otp });
+      await axios.post('https://codequest-backend-wmll.onrender.com/otp/verify-otp', { mobile: phone, code: otp });
       setStep(3);
       setMsg('OTP verified. Enter new password.');
     } catch (err) {
@@ -33,7 +33,7 @@ const ForgotPassword = ({ setShowForgot }) => {
   const handleResetPassword = async () => {
     setMsg('');
     try {
-      await axios.post('http://localhost:5000/user/reset-password', { phone, newPassword });
+      await axios.post('https://codequest-backend-wmll.onrender.com/user/reset-password', { phone, newPassword });
       setMsg('Password reset successful!');
       setTimeout(() => setShowForgot(false), 2000);
     } catch (err) {
