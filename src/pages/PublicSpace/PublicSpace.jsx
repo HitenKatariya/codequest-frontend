@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './PublicSpace.css';
 
-const API_URL = 'http://localhost:5000'; // Backend base URL
+const API_URL = 'https://codequest-backend-wmll.onrender.com/'; // Backend base URL
 
 const PublicSpace = () => {
   const [posts, setPosts] = useState([]);
@@ -103,7 +103,7 @@ const PublicSpace = () => {
             <div className="post-header">
               {post.user.avatar ? (
                 <img 
-                  src={post.user.avatar.startsWith('/uploads/') ? `http://localhost:5000${post.user.avatar}` : post.user.avatar} 
+                  src={post.user.avatar.startsWith('/uploads/') ? `https://codequest-backend-wmll.onrender.com/${post.user.avatar}` : post.user.avatar} 
                   alt="avatar" 
                   style={{width:44,height:44,borderRadius:'50%',objectFit:'cover',border:'2px solid #ff9900'}}
                 />
@@ -116,7 +116,7 @@ const PublicSpace = () => {
             <div className="post-content">{post.content}</div>
             {post.media && post.type === 'image' && (
               <img 
-                src={post.media.startsWith('/uploads/') ? `http://localhost:5000${post.media}` : post.media} 
+                src={post.media.startsWith('/uploads/') ? `https://codequest-backend-wmll.onrender.com/${post.media}` : post.media} 
                 alt="media" 
                 className="post-media" 
                 style={{maxWidth:200, borderRadius:8, marginTop:8}}
@@ -124,7 +124,7 @@ const PublicSpace = () => {
             )}
             {post.media && post.type === 'video' && (
               <video 
-                src={post.media.startsWith('/uploads/') ? `http://localhost:5000${post.media}` : post.media} 
+                src={post.media.startsWith('/uploads/') ? `https://codequest-backend-wmll.onrender.com/${post.media}` : post.media} 
                 controls 
                 className="post-media" 
                 style={{maxWidth:200, borderRadius:8, marginTop:8}}
