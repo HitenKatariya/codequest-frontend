@@ -1,0 +1,57 @@
+.friends-list-container {
+  max-width: 700px;
+  margin: 40px auto;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+  padding: 32px 24px 24px 24px;
+}
+.friends-list-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #ff9900;
+  margin-bottom: 32px;
+  text-align: center;
+}
+.friends-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 24px;
+}
+.friend-card {
+  background: #f9f9f9;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  padding: 24px 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: box-shadow 0.2s;
+}
+.friend-card:hover {
+  box-shadow: 0 4px 16px rgba(0,0,0,0.10);
+}
+.friend-avatar {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 16px;
+  border: 2px solid #ff9900;
+}
+.friend-name {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: #222;
+}
+.friend-profile-link {
+  color: #ff9900;
+  text-decoration: none;
+  font-weight: 500;
+  margin-top: 6px;
+  transition: color 0.2s;
+}
+.friend-profile-link:hover {
+  color: #007ac6;
+}

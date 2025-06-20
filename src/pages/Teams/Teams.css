@@ -1,0 +1,101 @@
+/* Teams.css */
+.teams-container {
+  max-width: 900px;
+  margin: 40px auto;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 2px 24px rgba(0,0,0,0.08);
+  padding: 36px 32px 48px 32px;
+}
+.teams-hero {
+  text-align: center;
+  margin-bottom: 36px;
+}
+.teams-hero h1 {
+  font-size: 2.8rem;
+  color: #ff9900;
+  margin-bottom: 10px;
+}
+.teams-subtitle {
+  font-size: 1.2rem;
+  color: #444;
+  margin-bottom: 18px;
+}
+.teams-cta {
+  display: inline-block;
+  background: #ff9900;
+  color: #fff;
+  padding: 12px 32px;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  text-decoration: none;
+  font-weight: 600;
+  margin-top: 10px;
+  transition: background 0.2s;
+}
+.teams-cta:hover {
+  background: #e67c00;
+}
+.teams-features {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 28px;
+  justify-content: center;
+  margin-bottom: 40px;
+}
+.feature-card {
+  background: #fafafa;
+  border-radius: 10px;
+  box-shadow: 0 1px 6px rgba(0,0,0,0.04);
+  padding: 28px 22px;
+  flex: 1 1 220px;
+  min-width: 220px;
+  max-width: 320px;
+  text-align: center;
+}
+.feature-card h2 {
+  color: #ff9900;
+  margin-bottom: 10px;
+  font-size: 1.3rem;
+}
+.feature-card p {
+  color: #444;
+  font-size: 1rem;
+}
+.teams-contact {
+  margin-top: 36px;
+  text-align: center;
+}
+.teams-contact h2 {
+  color: #222;
+  margin-bottom: 18px;
+}
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  max-width: 400px;
+  margin: 0 auto;
+}
+.contact-form input,
+.contact-form textarea {
+  border: 1px solid #ddd;
+  border-radius: 7px;
+  padding: 10px;
+  font-size: 1rem;
+}
+.contact-form button {
+  background: #ff9900;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 0;
+  font-size: 1.1rem;
+  cursor: pointer;
+  font-weight: 600;
+  margin-top: 8px;
+  transition: background 0.2s;
+}
+.contact-form button:hover {
+  background: #e67c00;
+}
