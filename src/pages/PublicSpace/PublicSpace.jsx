@@ -103,7 +103,7 @@ const PublicSpace = () => {
             <div className="post-header">
               {post.user.avatar ? (
                 <img 
-                  src={post.user.avatar.startsWith('/uploads/') ? `https://codequest-backend-wmll.onrender.com/${post.user.avatar}` : post.user.avatar} 
+                  src={post.user.avatar.startsWith('/uploads/') ? `https://codequest-backend-wmll.onrender.com${post.user.avatar}` : post.user.avatar} 
                   alt="avatar" 
                   style={{width:44,height:44,borderRadius:'50%',objectFit:'cover',border:'2px solid #ff9900'}}
                 />
