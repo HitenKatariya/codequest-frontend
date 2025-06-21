@@ -6,15 +6,17 @@ function Avatar({
     px,
     py,
     color,
-    borderRadius,fontSize,cursor,
+    borderRadius, fontSize, cursor,
     avatar,
     style: customStyle // allow style override
 }) {
     let avatarUrl = avatar;
     if (avatar && avatar.startsWith('/uploads/')) {
-      avatarUrl = `https://codequest-backend-wmll.onrender.com/${avatar}`;
+      // Remove any accidental double slashes
+      avatarUrl = `https://codequest-backend-wmll.onrender.com${avatar}`;
     }
-    if (avatar) {
+    // If avatar is a string and not empty, show image
+    if (avatar && typeof avatar === 'string' && avatar.trim() !== '') {
       return (
         <img src={avatarUrl} alt="avatar" style={{
           width: customStyle?.width || 48,
@@ -26,15 +28,15 @@ function Avatar({
       );
     }
     // Only show colored background if no avatar
-    const style={
+    const style = {
         backgroundColor,
-        padding:`${py} ${px}`,
-        color:color|| "black",
+        padding: `${py} ${px}`,
+        color: color || "black",
         borderRadius,
         fontSize,
-        textAlign:"center",
-        cursor:cursor || null,
-        textDecoration:"none",
+        textAlign: "center",
+        cursor: cursor || null,
+        textDecoration: "none",
         width: customStyle?.width || 48,
         height: customStyle?.height || 48,
         display: 'flex',
