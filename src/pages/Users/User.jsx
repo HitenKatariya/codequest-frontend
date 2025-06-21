@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Avatar from '../../Comnponent/Avatar/Avatar';
 
-const API_URL = 'https://codequest-backend-wmll.onrender.com/'; // Backend base URL
+const API_URL = 'https://codequest-backend-wmll.onrender.com'; // Backend base URL
 
 const User = ({ user }) => {
   const displayName = typeof user?.name === 'string' ? user.name : '';
