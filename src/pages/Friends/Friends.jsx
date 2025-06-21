@@ -3,7 +3,7 @@ import axios from 'axios';
 import { Link } from 'react-router-dom';
 import './Friends.css';
 
-const API_URL = 'http://localhost:5000'; // Backend base URL
+const API_URL = 'https://codequest-frontend-psi.vercel.app'; // Backend base URL (deployed)
 
 const Friends = () => {
   const [friends, setFriends] = useState([]);
