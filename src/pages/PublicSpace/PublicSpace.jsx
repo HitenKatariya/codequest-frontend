@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './PublicSpace.css';
 
-const API_URL = 'https://codequest-backend-wmll.onrender.com/'; // Backend base URL
+const API_URL = 'https://codequest-backend-wmll.onrender.com'; // Backend base URL
 
 const PublicSpace = () => {
   const [posts, setPosts] = useState([]);
