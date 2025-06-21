@@ -24,3 +24,4 @@ export const updateprofile=(id,updatedata)=>async(dispatch)=>{
         console.log(error)
     }
 }
+
