@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Avatar from '../../Comnponent/Avatar/Avatar';
 
-const API_URL = 'https://codequest-backend-wmll.onrender.com'; // Backend base URL
+const API_URL = 'http://localhost:5000'; // Backend base URL
 
 const User = ({ user }) => {
   const displayName = typeof user?.name === 'string' ? user.name : '';
@@ -38,6 +38,17 @@ const User = ({ user }) => {
       });
       setIsFriend(true);
       setFriends(prev => [...prev, user._id]);
+      
+      // Update localStorage with new friends count
+      const profile = JSON.parse(localStorage.getItem('Profile'));
+      if (profile && profile.result) {
+        if (!profile.result.friends) profile.result.friends = [];
+        if (!profile.result.friends.includes(user._id)) {
+          profile.result.friends.push(user._id);
+          localStorage.setItem('Profile', JSON.stringify(profile));
+        }
+      }
+      
       alert('Friend added successfully!');
     } catch (err) {
       console.error('Error adding friend:', err);
@@ -55,6 +66,14 @@ const User = ({ user }) => {
         headers: { Authorization: `Bearer ${token}` }
       });
       setIsFriend(false);
+      
+      // Update localStorage to remove friend
+      const profile = JSON.parse(localStorage.getItem('Profile'));
+      if (profile && profile.result && profile.result.friends) {
+        profile.result.friends = profile.result.friends.filter(friendId => friendId !== user._id);
+        localStorage.setItem('Profile', JSON.stringify(profile));
+      }
+      
       alert('Friend removed successfully!');
     } catch (err) {
       console.error('Error removing friend:', err);

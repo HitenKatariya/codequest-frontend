@@ -3,7 +3,7 @@ import axios from 'axios';
 import { Link } from 'react-router-dom';
 import './Friends.css';
 
-const API_URL = 'https://codequest-backend-wmll.onrender.com'; // Backend base URL (Render)
+const API_URL = 'http://localhost:5000'; // Backend base URL
 
 const Friends = () => {
   const [friends, setFriends] = useState([]);

@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const API=axios.create({
-    baseURL:"https://codequest-backend-wmll.onrender.com/"
+    baseURL:"http://localhost:5000/"
 });
 
 API.interceptors.request.use((req)=>{

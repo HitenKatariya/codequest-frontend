@@ -11,10 +11,13 @@ function Avatar({
     style: customStyle // allow style override
 }) {
     let avatarUrl = avatar;
+    
+    // Handle legacy local uploads
     if (avatar && avatar.startsWith('/uploads/')) {
-      // Remove any accidental double slashes
-      avatarUrl = `https://codequest-backend-wmll.onrender.com${avatar}`;
+      avatarUrl = `http://localhost:5000${avatar}`;
     }
+    // Cloudinary URLs come as full URLs, so we use them as-is
+    
     // If avatar is a string and not empty, show image
     if (avatar && typeof avatar === 'string' && avatar.trim() !== '') {
       return (

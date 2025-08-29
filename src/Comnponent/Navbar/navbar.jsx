@@ -10,7 +10,6 @@ import {setcurrentuser} from '../../action/currentuser'
 import {jwtDecode} from "jwt-decode"
 function Navbar({ handleslidein }) {
     var User = useSelector((state)=>state.currentuserreducer)
-    // console.log(User)
     const navigate = useNavigate()
     const dispatch=useDispatch();
     const handlelogout=()=>{
@@ -57,20 +56,22 @@ function Navbar({ handleslidein }) {
                         </Link>
                     ) : (
                         <>
-                            <Avatar 
-                                avatar={User?.result?.avatar}
-                                backgroundColor='#009dff' 
-                                px='10px' py='7px' 
-                                borderRadius='50%' 
-                                color="white"
-                                style={{ width: 48, height: 48, border: '3px solid #009dff' }}
-                            >
-                                {!User?.result?.avatar && (
-                                  <Link to={`/Users/${User?.result?._id}`} style={{ color: "white", textDecoration: "none" }}>
-                                    {User.result.name.charAt(0).toUpperCase()}
-                                  </Link>
-                                )}
-                            </Avatar>
+                            <Link to={`/Users/${User?.result?._id}`} style={{ textDecoration: "none" }}>
+                                <Avatar 
+                                    avatar={User?.result?.avatar}
+                                    backgroundColor='#009dff' 
+                                    px='10px' py='7px' 
+                                    borderRadius='50%' 
+                                    color="white"
+                                    style={{ width: 48, height: 48, border: '3px solid #009dff' }}
+                                >
+                                    {(!User?.result?.avatar && User?.result?.name) && (
+                                        <span style={{ color: "white", textDecoration: "none" }}>
+                                            {User.result.name.charAt(0).toUpperCase()}
+                                        </span>
+                                    )}
+                                </Avatar>
+                            </Link>
                             <button className="nav-tem nav-links" onClick={handlelogout}>Log out</button>
                         </>
                     )}

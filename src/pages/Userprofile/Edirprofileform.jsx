@@ -17,12 +17,14 @@ const Edirprofileform = ({ currentuser, setswitch }) => {
     const formData = new FormData();
     formData.append('avatar', file);
     try {
-      const res = await axios.post('https://codequest-backend-wmll.onrender.com/user/upload-avatar', formData, {
+      const res = await axios.post('http://localhost:5000/user/upload-avatar', formData, {
         headers: { 'Content-Type': 'multipart/form-data' },
       });
       setAvatar(res.data.imageUrl);
+      console.log('Avatar uploaded successfully:', res.data.imageUrl);
     } catch (err) {
-      alert('Failed to upload avatar');
+      console.error('Avatar upload error:', err.response?.data || err.message);
+      alert('Failed to upload avatar: ' + (err.response?.data?.error || err.message));
     }
   };
 
