@@ -1,0 +1,156 @@
+.ai-assistant {
+  margin-top: 16px;
+  padding: 14px;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  border-radius: 6px;
+  background: #fff;
+}
+
+.ai-title {
+  margin: 0 0 10px 0;
+}
+
+.ai-actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.ai-btn {
+  padding: 10px 12px;
+  border-radius: 6px;
+  border: 1px solid #009dff;
+  background: #009dff;
+  color: #fff;
+  cursor: pointer;
+}
+
+.ai-btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.ai-loading {
+  margin-top: 12px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #3a3a3a;
+}
+
+.ai-spinner {
+  width: 14px;
+  height: 14px;
+  border: 2px solid rgba(0, 0, 0, 0.2);
+  border-top-color: rgba(0, 0, 0, 0.6);
+  border-radius: 50%;
+  animation: ai-spin 0.8s linear infinite;
+}
+
+@keyframes ai-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.ai-error {
+  margin-top: 12px;
+  padding: 10px;
+  background: rgba(255, 0, 0, 0.06);
+  border: 1px solid rgba(255, 0, 0, 0.18);
+  border-radius: 6px;
+  color: #b00020;
+}
+
+.ai-result {
+  margin-top: 12px;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.ai-result-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 12px;
+  background: rgba(0, 0, 0, 0.03);
+}
+
+.ai-result-title {
+  font-weight: 600;
+}
+
+.ai-result-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.ai-link {
+  background: none;
+  border: none;
+  color: #007ac6;
+  cursor: pointer;
+  padding: 0;
+}
+
+.ai-result-body {
+  padding: 12px;
+}
+
+.ai-pre {
+  white-space: pre-wrap;
+  line-height: 1.4;
+}
+
+.ai-block {
+  margin-bottom: 10px;
+}
+
+.ai-label {
+  font-size: 12px;
+  color: rgba(0, 0, 0, 0.6);
+  margin-bottom: 4px;
+}
+
+.ai-tags {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.ai-tag {
+  font-size: 12px;
+  padding: 4px 8px;
+  border-radius: 999px;
+  border: 1px solid rgba(0, 0, 0, 0.18);
+  background: rgba(0, 0, 0, 0.03);
+}
+
+.ai-hint {
+  margin-top: 8px;
+  font-size: 12px;
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.ai-current {
+  padding: 10px 12px;
+  border-top: 1px solid rgba(0, 0, 0, 0.12);
+  font-size: 12px;
+}
+
+.ai-current-tags {
+  font-weight: 600;
+}
+
+.ai-notes {
+  margin-top: 10px;
+  font-size: 12px;
+  color: rgba(0, 0, 0, 0.65);
+}
+
+.ai-footnote {
+  margin-top: 10px;
+  font-size: 12px;
+  color: rgba(0, 0, 0, 0.6);
+}
