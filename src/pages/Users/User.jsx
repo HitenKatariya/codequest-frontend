@@ -9,7 +9,6 @@ const User = ({ user }) => {
   const [isFriend, setIsFriend] = useState(false);
   const [loading, setLoading] = useState(false);
   const myId = JSON.parse(localStorage.getItem('Profile'))?.result?._id;
-  const [friends, setFriends] = useState([]); // used to cache friend IDs
 
   useEffect(() => {
     fetchFriends();
@@ -22,7 +21,6 @@ const User = ({ user }) => {
       const res = await axios.get(`${API_URL}/friends/list`, {
         headers: { Authorization: `Bearer ${token}` }
       });
-      setFriends(res.data.map(f => f._id));
       setIsFriend(res.data.some(f => f._id === user._id));
     } catch {}
   };
@@ -36,7 +34,6 @@ const User = ({ user }) => {
         headers: { Authorization: `Bearer ${token}` }
       });
       setIsFriend(true);
-      setFriends(prev => [...prev, user._id]);
       
       // Update localStorage with new friends count
       const profile = JSON.parse(localStorage.getItem('Profile'));

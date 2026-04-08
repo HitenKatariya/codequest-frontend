@@ -23,11 +23,14 @@ function Navbar({ handleslidein }) {
         if(token){
             const decodedtoken=jwtDecode(token);
             if(decodedtoken.exp * 1000 < new Date().getTime()){
-                handlelogout();
+                // perform logout inline to avoid using handlelogout in deps
+                dispatch({type:"LOGOUT"});
+                navigate("/");
+                dispatch(setcurrentuser(null));
             }
         }
         dispatch(setcurrentuser(JSON.parse(localStorage.getItem("Profile"))))
-    },[User?.token,dispatch,handlelogout]);
+    },[User?.token,dispatch,navigate]);
     return (
         <nav className="main-nav">
             <div className="navbar">
