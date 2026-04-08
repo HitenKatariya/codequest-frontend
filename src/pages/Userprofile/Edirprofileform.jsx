@@ -20,7 +20,7 @@ const Edirprofileform = ({ currentuser, setswitch }) => {
     formData.append('avatar', file);
     try {
       const token = JSON.parse(localStorage.getItem('Profile'))?.token;
-      const res = await axios.post(`${API_URL}/user/upload-avatar`, formData, {
+      const res = await axios.post(`${API_URL}/avatar/upload-avatar`, formData, {
         headers: { 
           'Content-Type': 'multipart/form-data',
           Authorization: token ? `Bearer ${token}` : undefined,
