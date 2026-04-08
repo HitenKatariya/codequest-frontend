@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Leftsidebar from '../../Comnponent/Leftsidebar/Leftsidebar';
-import Rightsidebar from '../../Comnponent/Rightsidebar/Rightsidebar';
 import '../../App.css';
 import './PublicSpace.css';
 

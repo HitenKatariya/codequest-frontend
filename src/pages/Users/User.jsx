@@ -9,7 +9,7 @@ const User = ({ user }) => {
   const [isFriend, setIsFriend] = useState(false);
   const [loading, setLoading] = useState(false);
   const myId = JSON.parse(localStorage.getItem('Profile'))?.result?._id;
-  const [friends, setFriends] = useState([]);
+  const [friends, setFriends] = useState([]); // used to cache friend IDs
 
   useEffect(() => {
     fetchFriends();
