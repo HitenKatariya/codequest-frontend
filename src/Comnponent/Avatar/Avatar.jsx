@@ -14,8 +14,9 @@ function Avatar({
     
     // Handle legacy local uploads
     if (avatar && avatar.startsWith('/uploads/')) {
-      avatarUrl = `http://localhost:5050${avatar}`;
-    }
+	  const base = process.env.REACT_APP_API_BASE_URL || 'http://localhost:5050';
+	  avatarUrl = `${base}${avatar}`;
+	}
     // Cloudinary URLs come as full URLs, so we use them as-is
     
     // If avatar is a string and not empty, show image

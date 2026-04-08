@@ -3,8 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Avatar from '../../Comnponent/Avatar/Avatar';
 
-const API_URL = 'http://localhost:5050'; // Backend base URL
-
+const API_URL = process.env.REACT_APP_API_BASE_URL || 'http://localhost:5050';
 const User = ({ user }) => {
   const displayName = typeof user?.name === 'string' ? user.name : '';
   const [isFriend, setIsFriend] = useState(false);
