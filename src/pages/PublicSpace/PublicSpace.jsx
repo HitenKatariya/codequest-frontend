@@ -5,6 +5,7 @@ import '../../App.css';
 import './PublicSpace.css';
 
 const API_URL = process.env.REACT_APP_API_BASE_URL || 'http://localhost:5050';
+const BACKEND_BASE = API_URL; // reuse for legacy /uploads paths
 
 const PublicSpace = ({ slidein }) => {
   const [posts, setPosts] = useState([]);
@@ -147,7 +148,7 @@ const PublicSpace = ({ slidein }) => {
             <div className="post-header">
               {post.user.avatar ? (
                 <img 
-                  src={post.user.avatar.startsWith('/uploads/') ? `http://localhost:5050${post.user.avatar}` : post.user.avatar} 
+                  src={post.user.avatar.startsWith('/uploads/') ? `${BACKEND_BASE}${post.user.avatar}` : post.user.avatar} 
                   alt="avatar" 
                   style={{width:44,height:44,borderRadius:'50%',objectFit:'cover',border:'2px solid #ff9900'}}
                 />
@@ -160,7 +161,7 @@ const PublicSpace = ({ slidein }) => {
             <div className="post-content">{post.content}</div>
             {post.media && post.type === 'image' && (
               <img 
-                src={post.media} 
+                src={post.media?.startsWith('/uploads/') ? `${BACKEND_BASE}${post.media}` : post.media} 
                 alt="media" 
                 className="post-media" 
                 style={{maxWidth:200, borderRadius:8, marginTop:8}}
@@ -168,7 +169,7 @@ const PublicSpace = ({ slidein }) => {
             )}
             {post.media && post.type === 'video' && (
               <video 
-                src={post.media} 
+                src={post.media?.startsWith('/uploads/') ? `${BACKEND_BASE}${post.media}` : post.media} 
                 controls 
                 className="post-media" 
                 style={{maxWidth:200, borderRadius:8, marginTop:8}}
