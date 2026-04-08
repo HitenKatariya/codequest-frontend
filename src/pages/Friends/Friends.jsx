@@ -3,7 +3,7 @@ import axios from 'axios';
 import { Link } from 'react-router-dom';
 import './Friends.css';
 
-const API_URL = 'http://localhost:5000'; // Backend base URL
+const API_URL = 'http://localhost:5050'; // Backend base URL
 
 const Friends = () => {
   const [friends, setFriends] = useState([]);
@@ -31,6 +31,12 @@ const Friends = () => {
   return (
     <div className="friends-list-container">
       <h2 className="friends-list-title">Your Friends</h2>
+      <button
+        style={{ marginBottom: 16 }}
+        onClick={() => window.location = '/Users'}
+      >
+        Add Friend
+      </button>
       {loading ? <p>Loading...</p> : (
         friends.length === 0 ? <p>No friends yet.</p> : (
           <div className="friends-grid">

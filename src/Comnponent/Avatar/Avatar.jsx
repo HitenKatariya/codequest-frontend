@@ -14,7 +14,7 @@ function Avatar({
     
     // Handle legacy local uploads
     if (avatar && avatar.startsWith('/uploads/')) {
-      avatarUrl = `http://localhost:5000${avatar}`;
+      avatarUrl = `http://localhost:5050${avatar}`;
     }
     // Cloudinary URLs come as full URLs, so we use them as-is
     

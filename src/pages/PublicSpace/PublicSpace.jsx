@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import Leftsidebar from '../../Comnponent/Leftsidebar/Leftsidebar';
+import Rightsidebar from '../../Comnponent/Rightsidebar/Rightsidebar';
+import '../../App.css';
 import './PublicSpace.css';
 
-const API_URL = 'http://localhost:5000'; // Backend base URL
+const API_URL = 'http://localhost:5050'; // Backend base URL
 
-const PublicSpace = () => {
+const PublicSpace = ({ slidein }) => {
   const [posts, setPosts] = useState([]);
   const [content, setContent] = useState('');
   const [media, setMedia] = useState(null);
@@ -110,7 +113,10 @@ const PublicSpace = () => {
   };
 
   return (
-    <div className="public-space-container">
+    <div className="home-container-1">
+      <Leftsidebar slidein={slidein} />
+      <div className="home-container-2">
+      <div className="public-space-container">
       <h2>Public Space</h2>
       <form className="public-space-form" onSubmit={handleSubmit}>
         <textarea value={content} onChange={e => setContent(e.target.value)} placeholder="What's on your mind?" rows={3} />
@@ -142,7 +148,7 @@ const PublicSpace = () => {
             <div className="post-header">
               {post.user.avatar ? (
                 <img 
-                  src={post.user.avatar.startsWith('/uploads/') ? `http://localhost:5000${post.user.avatar}` : post.user.avatar} 
+                  src={post.user.avatar.startsWith('/uploads/') ? `http://localhost:5050${post.user.avatar}` : post.user.avatar} 
                   alt="avatar" 
                   style={{width:44,height:44,borderRadius:'50%',objectFit:'cover',border:'2px solid #ff9900'}}
                 />
@@ -185,7 +191,9 @@ const PublicSpace = () => {
           </div>
         ))}
       </div>
+      </div>
     </div>
+  </div>
   );
 };
 
