@@ -1,50 +1,62 @@
 # CodeQuest Frontend
 
-React.js frontend for CodeQuest - A social media platform for developers.
+React frontend for CodeQuest — a MERN Q&A platform with Public Space, profiles/avatars, friends/teams, and an AI Assistant inside the Ask Question flow.
 
-## 🚀 Features
+## Features
 
-- **User Authentication**: Login/Signup with JWT
-- **Public Space**: Share posts with media
-- **Profile Management**: User profiles with avatars
-- **Friends System**: Add/remove friends
-- **Real-time Updates**: Live friends count
-- **Responsive Design**: Mobile-friendly UI
+- Authentication (JWT)
+- Ask questions + view questions + answers
+- Public Space feed + media
+- User profiles + avatar upload
+- Friends + teams
+- AI Assistant on Ask Question:
+	- Improve Question
+	- Suggest Tags
+	- Generate Answer
 
-## 🛠️ Tech Stack
+## Tech stack
 
-- React.js
-- Redux for state management
-- Axios for API calls
-- CSS for styling
+- React (CRA)
+- Redux + Thunk
+- React Router
+- Axios
 
-## 📦 Installation
+## Local setup
+
+1. Install dependencies:
 
 ```bash
 npm install
+```
+
+2. Create a `.env` file in this folder.
+
+Example `.env`:
+
+```env
+# Backend base URL
+# Local: http://localhost:5050
+# Render: https://<your-render-service>.onrender.com
+REACT_APP_API_BASE_URL=http://localhost:5050
+```
+
+3. Start the app:
+
+```bash
 npm start
 ```
 
-## 🔗 Backend Repository
+## Configuration
 
-[CodeQuest Backend](https://github.com/HitenKatariya/codequest-backend)
+- The frontend reads the backend URL from `REACT_APP_API_BASE_URL`.
+- In development, `package.json` also includes a CRA `proxy` for local API calls.
 
-## 📱 Usage
+## Deployment (Vercel)
 
-1. Register/Login to your account
-2. Complete your profile
-3. Add friends from Users page
-4. Share posts in Public Space
-5. Interact with other users
+- Set `REACT_APP_API_BASE_URL` to your Render backend URL (example: `https://your-service.onrender.com`).
+- Redeploy on Vercel.
 
-## 🤝 Contributing
+## Backend
 
-1. Fork the repository
-2. Create feature branch
-3. Commit changes
-4. Push to branch
-5. Open Pull Request
-
-## 📄 License
-
-MIT License
+- Backend is typically deployed on Render.
+- Ensure the backend has Cloudinary and AI provider env vars configured.
