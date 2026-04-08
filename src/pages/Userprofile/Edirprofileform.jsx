@@ -4,6 +4,8 @@ import { updateprofile } from '../../action/users'
 import './Userprofile.css'
 import axios from 'axios';
 
+const API_URL = process.env.REACT_APP_API_BASE_URL || 'http://localhost:5050';
+
 const Edirprofileform = ({ currentuser, setswitch }) => {
   const [name, setname] = useState(currentuser?.result?.name)
   const [about, setabout] = useState(currentuser?.result?.about)
@@ -17,11 +19,15 @@ const Edirprofileform = ({ currentuser, setswitch }) => {
     const formData = new FormData();
     formData.append('avatar', file);
     try {
-      const res = await axios.post('http://localhost:5050/user/upload-avatar', formData, {
-        headers: { 'Content-Type': 'multipart/form-data' },
+      const token = JSON.parse(localStorage.getItem('Profile'))?.token;
+      const res = await axios.post(`${API_URL}/user/upload-avatar`, formData, {
+        headers: { 
+          'Content-Type': 'multipart/form-data',
+          Authorization: token ? `Bearer ${token}` : undefined,
+        },
       });
-      setAvatar(res.data.imageUrl);
-      console.log('Avatar uploaded successfully:', res.data.imageUrl);
+      setAvatar(res.data.avatar);
+      console.log('Avatar uploaded successfully:', res.data.avatar);
     } catch (err) {
       console.error('Avatar upload error:', err.response?.data || err.message);
       alert('Failed to upload avatar: ' + (err.response?.data?.error || err.message));
